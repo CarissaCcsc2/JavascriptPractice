@@ -42,27 +42,31 @@ function findMode(arr){
     // return object key with highest value
     // there will never be a value that is zero
     let highestValue = 0;
-    // initialized to negative infinity 
+   
+    // initialized to negative infinity to start at the lowest number in JS
     let highestValueKey = -Infinity; 
+   
 
     // looping over the object, breaking out each key in the object
     // and grabbing its corresponding value by accessing the object at that key
     for( let key in obj){
         const value = obj[key]
+        // if the value is greater or equal to the highestValue
+        // and the key is greater than the highestvalue
         if(value > highestValue){
             // set highestValue to value
             highestValue = value;
             // set highestValueKey to the corresponding key
-            highestValueKey = key;
+            highestValueKey = Number (key);
         }
     }
 
     //convert key back to number since all keys in the object are strings
-    return Number (highestValueKey);
+    return highestValueKey;
 }
 
 var arr = [1, 4, 7, 9];
-var arr = [ 11735, 14216, 14470, 38120, 51135, 64630, 67060, 73429, 99233, 4978];
+var arr = [ 11735, 14216, 14470, 38120, 51135, 64630, 67060, 73429, 99233, 99233, 99233, 4978, 4978,4978, 3000, 3000];
 console.log(findMedian(arr));
 console.log(findMean(arr));
 console.log(findMode(arr));
